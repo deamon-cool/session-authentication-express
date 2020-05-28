@@ -29,7 +29,18 @@ app.use(session({
 }));
 
 app.get('/', (req, res) => {
+    const { userId } = req.session;
 
+    res.send(`
+    <h1>Welcome!</h1>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+
+    <a href="/home">Home</a>
+    <form method="POST" action="/logout">
+        <button>Logout</button>
+    </form>
+    `);
 });
 
 app.get('/home', (req, res) => {
