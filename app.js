@@ -40,6 +40,16 @@ app.use(bodyParser.urlencoded({
 }));
 
 
+const redirectLogin = (req, res, next) => {
+    if (!req.session.userId) {
+        res.redirect('/login');
+    } else {
+        next();
+    }
+};
+
+
+
 app.get('/', (req, res) => {
     const { userId } = req.session;
 
@@ -57,7 +67,7 @@ app.get('/', (req, res) => {
     `);
 });
 
-app.get('/home', (req, res) => {
+app.get('/home', redirectLogin, (req, res) => {
     res.send(`
     <h1>Home</h1>
     <a href="/">Main</a>
