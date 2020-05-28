@@ -48,7 +48,7 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-
+    // req.session.userId =
 });
 
 app.post('/login', (req, res) => {
