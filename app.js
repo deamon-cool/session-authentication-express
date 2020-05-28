@@ -168,7 +168,14 @@ app.post('/register', redirectHome, (req, res) => {
 });
 
 app.post('/logout', redirectLogin, (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.redirect('/home');
+        }
 
+        res.clearCookie(SESS_NAME);
+        res.redirect('/login');
+    });
 });
 
 
