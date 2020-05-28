@@ -15,9 +15,9 @@ const {
 const IN_PROD = NODE_ENV === 'production';
 
 const users = [
-    { id:1, name:'dam', email:'d@m.com', password: 'secret'},
-    { id:2, name:'kkm', email:'k@m.com', password: 'secret'},
-    { id:3, name:'pim', email:'p@m.com', password: 'secret'}
+    { id: 1, name: 'dam', email: 'd@m.com', password: 'secret' },
+    { id: 2, name: 'kkm', email: 'k@m.com', password: 'secret' },
+    { id: 3, name: 'pim', email: 'p@m.com', password: 'secret' }
 ];
 
 const app = express();
