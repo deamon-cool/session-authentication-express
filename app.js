@@ -118,9 +118,13 @@ app.post('/login', redirectHome, (req, res) => {
 
         if (user) {
             req.session.userId = user.id;
+
+            return res.redirect('/home');
         }
 
     }
+
+    res.redirect('/login');
 });
 
 app.get('/register', redirectHome, (req, res) => {
