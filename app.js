@@ -28,4 +28,30 @@ app.use(session({
     }
 }));
 
+app.get('/', (req, res) => {
+
+});
+
+app.get('/home', (req, res) => {
+
+});
+
+app.get('/login', (req, res) => {
+
+});
+
+app.post('/login', (req, res) => {
+
+});
+
+app.get('/register', (req, res) => {
+
+});
+
+app.post('/register', (req, res) => {
+
+});
+
+
+
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
