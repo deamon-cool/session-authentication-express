@@ -63,7 +63,15 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    // req.session.userId =
+    res.send(`
+    <h1>Login</h1>
+    <form method="POST" action="/login">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit">
+    </form>
+    <a href="/register">Register</a>
+    `);
 });
 
 app.post('/login', (req, res) => {
@@ -71,7 +79,16 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-
+    res.send(`
+    <h1>Register</h1>
+    <form method="POST" action="/register">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit">
+    </form>
+    <a href="/login">Login</a>
+    `);
 });
 
 app.post('/register', (req, res) => {
