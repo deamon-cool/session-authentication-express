@@ -111,7 +111,7 @@ app.post('/register', (req, res) => {
 
 });
 
-app.post('/logout', (req, res) => {
+app.post('/logout', redirectLogin, (req, res) => {
 
 });
 
