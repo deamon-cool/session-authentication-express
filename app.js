@@ -142,7 +142,29 @@ app.get('/register', redirectHome, (req, res) => {
 });
 
 app.post('/register', redirectHome, (req, res) => {
+    const { name, email, password } = req.body;
 
+    if (name && email && password) {    // TODO: need to be validated first
+        const exists = users.some(
+            user => user.email === email
+        );
+
+        if (!exists) {
+            const user = {
+                id: users.length + 1,
+                email,
+                password    // TODO: need to be hashed first
+            }
+
+            users.push(user);
+
+            req.session.userId = user.id;
+
+            return res.redirect('/home');
+        }
+    }
+
+    res.redirect('/register');      // TODO: Error: user exist now, email too short, wrong password
 });
 
 app.post('/logout', redirectLogin, (req, res) => {
