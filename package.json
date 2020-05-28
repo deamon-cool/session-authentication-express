@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/deamon-cool/session-authentication-express/issues"
   },
-  "homepage": "https://github.com/deamon-cool/session-authentication-express#readme"
+  "homepage": "https://github.com/deamon-cool/session-authentication-express#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1"
+  }
 }
