@@ -39,18 +39,27 @@ app.get('/', (req, res) => {
 
     res.send(`
     <h1>Welcome!</h1>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-
-    <a href="/home">Home</a>
-    <form method="POST" action="/logout">
-        <button>Logout</button>
-    </form>
+    ${userId ? `
+        <a href="/home">Home</a>
+        <form method="POST" action="/logout">
+            <button>Logout</button>
+        </form>
+        ` : `
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    `}
     `);
 });
 
 app.get('/home', (req, res) => {
-
+    res.send(`
+    <h1>Home</h1>
+    <a href="/">Main</a>
+    <ul>
+        <li>Name: </li>
+        <li>Email: </li>
+    </ul>
+    `);
 });
 
 app.get('/login', (req, res) => {
