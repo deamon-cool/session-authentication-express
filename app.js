@@ -56,6 +56,14 @@ const redirectLogin = (req, res, next) => {
     }
 };
 
+const redirectHome = (req, res, next) => {
+    if (req.session.userId) {
+        res.redirect('/home');
+    } else {
+        next();
+    }
+};
+
 
 
 // endpoints
@@ -88,7 +96,7 @@ app.get('/home', redirectLogin, (req, res) => {
     `);
 });
 
-app.get('/login', (req, res) => {
+app.get('/login', redirectHome, (req, res) => {
     res.send(`
     <h1>Login</h1>
     <form method="POST" action="/login">
@@ -100,11 +108,11 @@ app.get('/login', (req, res) => {
     `);
 });
 
-app.post('/login', (req, res) => {
+app.post('/login', redirectHome, (req, res) => {
 
 });
 
-app.get('/register', (req, res) => {
+app.get('/register', redirectHome, (req, res) => {
     res.send(`
     <h1>Register</h1>
     <form method="POST" action="/register">
@@ -117,7 +125,7 @@ app.get('/register', (req, res) => {
     `);
 });
 
-app.post('/register', (req, res) => {
+app.post('/register', redirectHome, (req, res) => {
 
 });
 
