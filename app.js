@@ -2,6 +2,9 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
+
+// constants
+
 const TWO_HOURS = 1000 * 60 * 60 * 2;
 
 const {
@@ -20,6 +23,9 @@ const users = [
     { id: 2, name: 'kkm', email: 'k@m.com', password: 'secret' },
     { id: 3, name: 'pim', email: 'p@m.com', password: 'secret' }
 ];
+
+
+// express settings
 
 const app = express();
 
@@ -40,6 +46,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 
+// middlewares
+
 const redirectLogin = (req, res, next) => {
     if (!req.session.userId) {
         res.redirect('/login');
@@ -49,6 +57,8 @@ const redirectLogin = (req, res, next) => {
 };
 
 
+
+// endpoints
 
 app.get('/', (req, res) => {
     const { userId } = req.session;
@@ -116,5 +126,7 @@ app.post('/logout', redirectLogin, (req, res) => {
 });
 
 
+
+// server listener
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
