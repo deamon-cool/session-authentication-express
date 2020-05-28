@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 
 const TWO_HOURS = 1000 * 60 * 60 * 2;
 
@@ -33,6 +34,11 @@ app.use(session({
         secure: IN_PROD,
     }
 }));
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 
 app.get('/', (req, res) => {
     const { userId } = req.session;
