@@ -18,6 +18,7 @@ const {
 
 const IN_PROD = NODE_ENV === 'production';
 
+// TODO: DB
 const users = [
     { id: 1, name: 'dam', email: 'd@m.com', password: 'secret' },
     { id: 2, name: 'kkm', email: 'k@m.com', password: 'secret' },
@@ -111,9 +112,9 @@ app.get('/login', redirectHome, (req, res) => {
 app.post('/login', redirectHome, (req, res) => {
     const { email, password } = req.body;
 
-    if (email && password) {
+    if (email && password) {    // TODO: need to be validated first
         const user = users.find(
-            user => user.email === email && user.password === password
+            user => user.email === email && user.password === password  // TODO: need to be hashed first
         );
 
         if (user) {
