@@ -109,7 +109,18 @@ app.get('/login', redirectHome, (req, res) => {
 });
 
 app.post('/login', redirectHome, (req, res) => {
+    const { email, password } = req.body;
 
+    if (email && password) {
+        const user = users.find(
+            user => user.email === email && user.password === password
+        );
+
+        if (user) {
+            req.session.userId = user.id;
+        }
+
+    }
 });
 
 app.get('/register', redirectHome, (req, res) => {
