@@ -87,12 +87,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', redirectLogin, (req, res) => {
+    const user = users.find(user => user.id === req.session.userId);
+
     res.send(`
     <h1>Home</h1>
     <a href="/">Main</a>
     <ul>
-        <li>Name: </li>
-        <li>Email: </li>
+        <li>Name: ${user.name}</li>
+        <li>Email: ${user.email}</li>
     </ul>
     `);
 });
