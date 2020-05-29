@@ -68,7 +68,7 @@ const redirectHome = (req, res, next) => {
 app.use((req, res, next) => {
     const { userId } = req.session;
 
-    if(userId) {
+    if (userId) {
         res.locals.user = users.find(user => user.id === userId);
     }
 
