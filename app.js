@@ -99,6 +99,10 @@ app.get('/home', redirectLogin, (req, res) => {
     `);
 });
 
+app.get('/profile', (req, res) => {
+    const user = users.find(user => user.id === req.session.userId);
+});
+
 app.get('/login', redirectHome, (req, res) => {
     res.send(`
     <h1>Login</h1>
