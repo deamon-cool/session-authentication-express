@@ -108,9 +108,9 @@ app.get('/home', redirectLogin, (req, res) => {
     `);
 });
 
-app.get('/profile', redirectLogin, (req, res) => {
-    const { user } = res.locals;
-});
+// app.get('/profile', redirectLogin, (req, res) => {
+//     const { user } = res.locals;
+// });
 
 app.get('/login', redirectHome, (req, res) => {
     res.send(`
