@@ -167,6 +167,7 @@ app.post('/register', redirectHome, (req, res) => {
         if (!exists) {
             const user = {
                 id: users.length + 1,
+                name,
                 email,
                 password    // TODO: need to be hashed first
             }
