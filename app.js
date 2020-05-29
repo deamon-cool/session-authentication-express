@@ -96,7 +96,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', redirectLogin, (req, res) => {
-    const user = users.find(user => user.id === req.session.userId);
+    const { user } = res.locals;
 
     res.send(`
     <h1>Home</h1>
@@ -109,7 +109,7 @@ app.get('/home', redirectLogin, (req, res) => {
 });
 
 app.get('/profile', (req, res) => {
-    const user = users.find(user => user.id === req.session.userId);
+    const { user } = res.locals;
 });
 
 app.get('/login', redirectHome, (req, res) => {
